@@ -2,13 +2,14 @@ pipeline {
   agent {
     docker {
       image 'golang'
+      args '-v $HOME/goroot:/go'
     }
 
   }
   stages {
     stage('Build') {
       steps {
-        sh 'go build'
+        sh 'go get -v -d ./...'
       }
     }
   }
