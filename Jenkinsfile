@@ -12,9 +12,20 @@ pipeline {
         sh 'go get -v -d ./...'
       }
     }
-    stage('Build') {
-      steps {
-        sh 'go build'
+    stage('Build ') {
+      parallel {
+        stage('Build Chat P2P') {
+          steps {
+            sh '''cd chat-with-rendezvous
+go build'''
+          }
+        }
+        stage('chat') {
+          steps {
+            sh '''cd go-libp2p-examples
+go build'''
+          }
+        }
       }
     }
   }
