@@ -22,7 +22,13 @@ go build'''
         }
         stage('chat') {
           steps {
-            sh '''cd go-libp2p-examples
+            sh '''cd chat
+go build'''
+          }
+        }
+        stage('echo') {
+          steps {
+            sh '''cd echo
 go build'''
           }
         }
