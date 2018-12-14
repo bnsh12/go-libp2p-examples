@@ -7,9 +7,14 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
+    stage('Get Dependencies') {
       steps {
         sh 'go get -v -d ./...'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'go build'
       }
     }
   }
