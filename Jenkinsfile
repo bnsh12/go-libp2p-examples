@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'golang'
-      args '-v $HOME/goroot:/go'
+      args '-v $HOME/goroot:/go -u root:root'
     }
 
   }
