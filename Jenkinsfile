@@ -34,5 +34,10 @@ go build'''
         }
       }
     }
+    stage('done') {
+      steps {
+        echo 'Yeah done!!'
+      }
+    }
   }
 }
